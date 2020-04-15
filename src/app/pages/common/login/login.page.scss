@@ -1,0 +1,14 @@
+.loginButton{
+    margin-top:1em;
+  }
+
+  .createAccount{
+    text-align: center;
+    margin-top: 2em;
+  }
+
+  ion-content{
+    --background-size:auto;
+    --text-align:center;
+    --background:linear-gradient( rgb(0, 0, 0) 1.48%, rgba(0, 0, 0, 0) 80.52%, rgb(255, 255, 255) 100.52%) ,url('../../../../assets/wallpapers/login.jpg');
+  }

@@ -1,0 +1,71 @@
+img{
+    width: 70px !important;
+    height: 60px !important;
+}
+ion-avatar{
+    width: 150px;
+    height: 100px;
+
+}
+
+item-title{
+    margin-left: 3em;
+}
+.item-title{
+    color: black;
+    margin-left: 6%;
+    font-size: 18px;
+  }
+  
+  .item-price{
+    font-size: 22px;
+    color: black;
+    right: 0;
+    bottom: 12px;
+  
+  }
+
+  .prods{
+      --background: white;
+      --border-radius: 50px;
+        padding: 2%; 
+        width: 120%;
+        text-align: center;
+        padding-right: 20%;
+        border-color: red;
+
+  }
+
+  ion-button{
+    --background: black;
+    height: 50%;
+    width: 16%;
+    
+
+  }
+
+  ion-icon{
+    height: 100%;
+    width: 40px;
+  }
+
+  .button {
+    padding: 15px 25px;
+
+    text-align: center;
+    cursor: pointer;
+    outline: none;
+    color: #fff;
+
+    border: none;
+    border-radius: 15px;
+ 
+  }
+  
+  .button:hover {}
+  
+  .button:active {
+
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
+  }

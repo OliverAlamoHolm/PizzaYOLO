@@ -1,0 +1,26 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Crea tu Perfil</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+
+  <ion-item class="input">
+    <ion-label position="floating">Name</ion-label>
+    <ion-input [(ngModel)]="name" type="text"></ion-input>
+  </ion-item>
+
+  <ion-item class="input">
+    <ion-label position="floating">Apellidos</ion-label>
+    <ion-input [(ngModel)]="lastname" type="text"></ion-input>
+  </ion-item>
+
+  <ion-item class="input">
+    <ion-label position="floating" >Teléfono de contacto</ion-label>
+    <ion-input [(ngModel)]="telephone" type="number"></ion-input>
+  </ion-item>
+
+  <ion-button (click)="createClient()" expand="block">Crear</ion-button>
+
+</ion-content>

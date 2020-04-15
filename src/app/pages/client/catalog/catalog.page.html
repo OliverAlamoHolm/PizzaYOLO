@@ -1,0 +1,18 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Menú</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div *ngFor="let cat of items" class="category-block">
+
+    <ion-card class="welcome-card"  button [routerLink]="['/catalog-categories', cat.category]" >
+      <img src="{{cat.imageCat}}" alt="" />
+      <ion-card-header>
+        <ion-card-title>{{cat.category}}</ion-card-title>
+      </ion-card-header>
+    </ion-card>
+  </div>
+
+</ion-content>

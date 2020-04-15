@@ -1,0 +1,12 @@
+ion-content{
+    //--background:linear-gradient( rgb(0, 0, 0) 1.48%, rgb(165, 42, 42) 12.52%, rgb(255, 255, 255) 95.52%) ,url('assets/logo2.png');
+    --background-size:auto;
+    --text-align:center;
+    color:black;
+    --background:linear-gradient( rgb(255, 255, 255) 1.48%, rgba(255, 255, 255, 0) 80.52%, rgb(255, 255, 255) 100.52%);
+    
+}
+
+ion-toolbar{
+    color:white;
+}

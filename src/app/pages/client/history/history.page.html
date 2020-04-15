@@ -1,0 +1,33 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Facturas</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+
+  <ion-card>
+    <ion-card-content>
+      <ng-container *ngIf="commands.length == 0">
+        <div className="ion-padding custom-skeleton">
+          <ion-skeleton-text></ion-skeleton-text>
+          <ion-skeleton-text style="width: 70%; margin-top: 5%;"></ion-skeleton-text>
+          <ion-skeleton-text style="width: 40%; margin-top: 5%;"></ion-skeleton-text>
+        </div>
+      </ng-container>
+      <ng-container ^ngIf="commands.length > 0">
+        <ion-list>
+          <ion-item *ngFor="let c of commands" button (click)="openCart(c)">      
+            <ion-label class="trainerDetails">
+              <h2><b>{{c.date.toDate() | date:'dd/MM HH:MM'}}</b></h2>
+              <p>{{c.price}} $</p>
+            </ion-label> 
+          </ion-item>
+        </ion-list>
+      </ng-container>
+    </ion-card-content>
+  </ion-card>
+
+  
+  
+</ion-content>

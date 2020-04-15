@@ -1,0 +1,40 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Pedido</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content >
+
+  <ion-card>
+    <ion-card-content>
+      <ng-container *ngIf="cart.length == 0">
+        <div className="ion-padding custom-skeleton">
+          <ion-skeleton-text></ion-skeleton-text>
+          <ion-skeleton-text style="width: 70%; margin-top: 5%;" color="light"></ion-skeleton-text>
+          <ion-skeleton-text style="width: 40%; margin-top: 5%;" color="light"></ion-skeleton-text>
+        </div>
+      </ng-container>
+      <ng-container *ngIf="cart.length > 0" class="list">
+        <ion-list>
+          <ion-item *ngFor="let prod of cart">
+            {{prod.name}} x {{prod.amount}}
+            <ion-button slot="end" (click)="removeItem(prod)">
+              <ion-icon name="trash"></ion-icon>
+            </ion-button>
+          </ion-item>
+        </ion-list>
+        <ion-item>
+          <h1 slot="end">Total: <span slot="end">{{ getTotal()  }} €</span></h1>
+        </ion-item>
+        
+      </ng-container>
+    </ion-card-content>
+  </ion-card>
+  <ng-container *ngIf="cart.length > 0">
+    <ion-button (click)="confirm()" expand="block">Realizar Pedido</ion-button>
+    <ion-button (click)="cancel()" expand="block">Cancelar Pedido</ion-button>
+  </ng-container>
+  
+    
+</ion-content>

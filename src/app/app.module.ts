@@ -9,10 +9,20 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
+
+import {AngularFireModule} from 'angularfire2';
+import {environment} from "../environments/environment";
+import {AngularFireAuthModule} from '@angular/fire/auth';
+import {AngularFirestoreModule, FirestoreSettingsToken} from 'angularfire2/firestore';
+import {IonicStorageModule} from '@ionic/storage';
+import { CartModalPageModule } from './pages/common/cart-modal/cart-modal.module';
+
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
-  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule],
+  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, 
+    AngularFireModule.initializeApp(environment.firebaseConfig), AngularFirestoreModule, AngularFireAuthModule,
+  IonicStorageModule.forRoot(), CartModalPageModule],
   providers: [
     StatusBar,
     SplashScreen,

@@ -24,3 +24,39 @@
 @import "~@ionic/angular/css/text-alignment.css";
 @import "~@ionic/angular/css/text-transformation.css";
 @import "~@ionic/angular/css/flex-utils.css";
+//@import '~animate.css/animate.min.css';
+
+
+
+ion-content{
+    //--background:linear-gradient( rgb(0, 0, 0) 1.48%, rgb(165, 42, 42) 12.52%, rgb(255, 255, 255) 95.52%) ,url('assets/logo2.png');
+    --background-size:auto;
+    --text-align:center;
+    --background:linear-gradient( rgb(0, 0, 0) 1.48%, rgba(0, 0, 0, 0) 80.52%, rgb(255, 255, 255) 100.52%) ,url('../src/assets/wallpapers/global.jpg');
+    
+}
+
+ion-toolbar{
+    --background: black;
+    color:white;
+}
+
+.cart-modal{
+    --height: 50%;
+    --border-radius: 10px;
+    padding: 25px;
+    --background: white;
+
+}
+
+.input{
+    --border-radius: 50px;
+    padding: 1%; 
+
+}
+
+
+  
+  ion-button{
+    --border-radius: 50px; 
+  }

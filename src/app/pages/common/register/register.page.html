@@ -1,0 +1,23 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Registro</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <img src="assets/logo.png">
+  <ion-item class="input">
+    <ion-label position="floating">Email</ion-label>
+    <ion-input [(ngModel)]="email" type="text"></ion-input>
+  </ion-item>
+  <ion-item class="input">
+    <ion-label position="floating">Contraseña</ion-label>
+    <ion-input [(ngModel)]="password" type="password" name="password" ></ion-input>
+  </ion-item>
+  <ion-item class="input">
+    <ion-label position="floating">Repita Contraseña</ion-label>
+    <ion-input [(ngModel)]="password2" type="password" name="password2" ></ion-input>
+  </ion-item>
+  <ion-button class="loginButton" (click)="OnSubmitRegister()" expand="block" color="dark">Crear Cuenta</ion-button>
+  
+</ion-content>

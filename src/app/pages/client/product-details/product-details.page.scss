@@ -1,0 +1,14 @@
+ion-content{
+    //--background:linear-gradient( rgb(0, 0, 0) 1.48%, rgb(165, 42, 42) 12.52%, rgb(255, 255, 255) 95.52%) ,url('assets/logo2.png');
+    --background-size:auto;
+    --text-align:center;
+    color:white;
+    text-align:center;
+    --background:linear-gradient( rgb(0, 0, 0) 1.48%, rgba(0, 0, 0, 0) 80.52%, rgb(0, 0, 0) 100.52%) ,url('../../../../assets/wallpapers/prod.jpg');
+    
+}
+
+.item-desc{
+    color:white;
+    font-size: 20px;
+}

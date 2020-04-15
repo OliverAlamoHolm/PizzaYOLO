@@ -1,0 +1,32 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Pedidos</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ng-container *ngFor="let c of commands">
+      <ion-item-sliding *ngIf="c.done == true && c.delivered==false">
+        <ion-item button (click)="openCart(c)">
+          <ion-label>
+            {{c.name}} 
+            {{c.ubication}}
+            <p>{{c.price}} $</p>
+          </ion-label>
+          <ion-note slot="end" color="primary">
+            {{c.date.toDate() | date}}
+          </ion-note>
+        </ion-item>
+        <ion-item-options side="end">
+          <ion-item-option (click)="alerta(c)">
+            Entregado 
+          </ion-item-option>
+          <ion-item-option (click)="alertaBorrar(c)" color="dark">
+            <ion-icon name="trash"></ion-icon>
+           </ion-item-option>
+        </ion-item-options>  
+      </ion-item-sliding>
+    </ng-container>
+  </ion-list>
+</ion-content>

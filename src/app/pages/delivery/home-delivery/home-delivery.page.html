@@ -1,0 +1,50 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Inicio</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="logout()" >
+        <ion-icon name="exit-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card color="primary">
+    <ion-card-title button (click)="viewCommands()">Ver Recibos</ion-card-title>
+    <ion-card-content >
+      <ng-container *ngIf="vCommands == true">
+        <ion-list>
+          <ng-container *ngFor="let c of commands">
+            <ng-container *ngIf="c.done== true && c.delivered ==true">
+              <ion-item button (click)="openCart(c)">   
+                <ion-label class="trainerDetails">
+                  <h2><b>{{c.name}} | {{c.price}} €</b></h2>
+                  <p>{{c.date.toDate() | date}}  </p>
+                </ion-label>
+              </ion-item>
+            </ng-container>
+          </ng-container>
+        </ion-list>
+      </ng-container>
+      </ion-card-content>
+  </ion-card>
+
+  <ion-card color="primary">
+    <ion-card-title button (click)="viewUsers()">Ver Usuarios</ion-card-title>
+    <ion-card-content >
+      <ng-container *ngIf="vUser == true">
+        <ion-list>
+          <ng-container *ngFor="let cli of clients">   
+              <ion-item>
+                <ion-label class="trainerDetails">
+                  <h2><b>{{cli.name}} {{cli.lastname}}</b></h2>
+                  <p>{{cli.mail}} | {{cli.telephone}}</p>
+                </ion-label> 
+              </ion-item>            
+          </ng-container>
+        </ion-list>
+      </ng-container>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

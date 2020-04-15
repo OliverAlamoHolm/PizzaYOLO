@@ -1,0 +1,55 @@
+<ion-tabs *ngIf="rol == 'pizzaiolo'">
+
+  <ion-tab-bar slot="bottom">
+    <ion-tab-button tab="home-pizza">
+      <ion-icon name="home"></ion-icon>
+      <ion-label>Inicio</ion-label>
+    </ion-tab-button>
+
+    <ion-tab-button tab="commands">
+      <ion-icon name="list"></ion-icon>
+      <ion-label>Comandas</ion-label>
+    </ion-tab-button>
+
+  </ion-tab-bar>
+</ion-tabs>
+
+<ion-tabs *ngIf="rol == 'client'">
+  <ion-tab-bar slot="bottom">
+    <ion-tab-button tab="home-client">
+      <ion-icon name="home"></ion-icon>
+      <ion-label>Inicio</ion-label>
+    </ion-tab-button>
+
+    <ion-tab-button tab="catalog">
+      <ion-icon name="pizza"></ion-icon>
+      <ion-label>Catalogo</ion-label>
+    </ion-tab-button>
+
+    <ion-tab-button tab="cart">
+      <ion-badge  *ngIf="cart.length > 0">{{cart.length}}</ion-badge>
+      <ion-icon name="cart"></ion-icon>
+      <ion-label>Pedido</ion-label>
+    </ion-tab-button>
+
+    <ion-tab-button tab="history">
+      <ion-icon name="list"></ion-icon>
+      <ion-label>Historial</ion-label>
+    </ion-tab-button>
+  </ion-tab-bar>
+</ion-tabs>
+
+<ion-tabs *ngIf="rol == 'deliver'">
+  <ion-tab-bar slot="bottom">
+    <ion-tab-button tab="home-deliver">
+      <ion-icon name="home"></ion-icon>
+      <ion-label>Inicio</ion-label>
+    </ion-tab-button>
+
+    <ion-tab-button tab="deliver">
+      <ion-icon name="car"></ion-icon>
+      <ion-label>Reparto</ion-label>
+    </ion-tab-button>
+
+  </ion-tab-bar>
+</ion-tabs>
