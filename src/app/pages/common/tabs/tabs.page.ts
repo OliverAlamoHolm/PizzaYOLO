@@ -19,7 +19,6 @@ export class TabsPage implements OnInit{
   ngOnInit() {
     this.storageService.getActualRol().then(res =>{
       this.rol = res;
-      console.log(this.rol)
       if(this.rol == 'client'){
         this.cart = this.coService.getCart();
       }

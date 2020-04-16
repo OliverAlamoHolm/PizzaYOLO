@@ -1,6 +1,6 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>homeClient</ion-title>
+    <ion-title>Inicio</ion-title>
     <ion-buttons slot="end">
       <ion-button (click)="logout()" >
         <ion-icon name="exit-outline"></ion-icon>
@@ -11,20 +11,30 @@
 </ion-header>
 
 <ion-content class="ion-padding">
-  <h1>Bienvenido a PizzaYOLO</h1>
   <img src="../../../../assets/logo.png">
-  <ion-card>
-    
+  <ion-card class="welcome-card">
+    <ion-card-header>
+      <ion-card-title>Quiénes Somos</ion-card-title> 
+    </ion-card-header>
+
     <ion-card-content>
-      <p>PizzaProject es un restaurante Italiano con un toque creativo.
-        Servimos los clásicos platos italianos que nos encantan a todos, pero también nos gusta inspirarnos en los sabores
+      <p>PizzaYOLO es un restaurante Italiano con un toque creativo.
+        Servimos las clásicos pizzas italianas que nos encantan a todos, pero también nos gusta inspirarnos en los sabores
         que ofrecen otros países, creando platos únicos. La comida es uno de los placeres más grandes de la vida, ya sea
         preparándola o degustándola. Queremos ser un lugar donde puedan reunirse personas
         de todas las edades, con ocasión de disfrutar de una comida de primera calidad hecha con todo nuestro amor y arte.</p>
-      <p>Estamos abiertos todos los días de 12:00 a 01:00 (La cocina cierra a las 00.00)</p>
     </ion-card-content>
   </ion-card>
 
-  
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Dónde estamos</ion-card-title>
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3520.407866412093!2d-15.453664984929935!3d28.073099182641897!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xc4095d45a6f90ef%3A0xdc47519abbbe0084!2sEscuela%20De%20Ingenier%C3%ADa%20inform%C3%A1tica!5e0!3m2!1ses!2ses!4v1587030026245!5m2!1ses!2ses" width="275" height="200" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+      <ion-card-title>Escuela Ing. Informática</ion-card-title>
+      <ion-card-subtitle>Campus de Tafira, 35017 Las Palmas de Gran Canaria, Las Palmas</ion-card-subtitle>
+    </ion-card-header>
+    <ion-card-content>
 
+    </ion-card-content>
+  </ion-card>
 </ion-content>

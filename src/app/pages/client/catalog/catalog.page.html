@@ -6,7 +6,6 @@
 
 <ion-content>
   <div *ngFor="let cat of items" class="category-block">
-
     <ion-card class="welcome-card"  button [routerLink]="['/catalog-categories', cat.category]" >
       <img src="{{cat.imageCat}}" alt="" />
       <ion-card-header>

@@ -2,7 +2,6 @@
   <ion-toolbar>
     <ion-buttons slot="start">
       <ion-back-button defaultHref="/products">
-
       </ion-back-button>
     </ion-buttons>
     <ion-title>
@@ -12,9 +11,7 @@
 </ion-header>
 
 <ion-content >
-
   <div *ngFor="let cat of items">
-
      <ng-container *ngIf="cat.category == category">
          <ng-container *ngFor="let product of cat.products">
            <ion-item class="prods" expand="block">
@@ -24,7 +21,6 @@
              <ion-label button [routerLink]="['/product-details', product.name]">
               <h2><b>{{product.name}}</b></h2>
               <p>{{product.price}} €</p>
-
              </ion-label>
             <ion-icon class="button" name="basket" color="primary" slot="end" button (click)="addToCart(product)"></ion-icon>
            </ion-item>

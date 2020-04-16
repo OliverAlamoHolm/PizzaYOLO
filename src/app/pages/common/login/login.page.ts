@@ -39,7 +39,7 @@ export class LoginPage implements OnInit {
           if (user.rol == 'client'){
             for(let cli of this.clients){
               if (cli.uid == user.uid){
-                this.storageService.addActualName(cli.name + ' ' + cli.lastName)
+                this.storageService.addActualName(cli.name + ' ' + cli.lastname)
                 this.storageService.addActualUID(cli.uid)
                 this.storageService.addActualId(cli.id)
               }
@@ -47,21 +47,12 @@ export class LoginPage implements OnInit {
           }
         }
       }
-      this.router.navigateByUrl('tabs')
+      this.router.navigateByUrl('tabs').then(()=>{
+        location.reload();
+      })
     }).catch(err =>
-      this.passAlert('Error al iniciar sesión, comprueba las credenciales')
+      console.log(err)
     )
-  }
-
-  async passAlert(msg){
-    const toast = await this.toastController.create({
-      message: msg,
-      color: 'primary',
-      position: 'middle',
-      duration: 2000
-    });
-    toast.present();
-
   }
 
 }

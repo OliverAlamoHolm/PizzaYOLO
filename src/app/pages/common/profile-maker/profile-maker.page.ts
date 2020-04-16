@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 import {map} from "rxjs/operators";
 import {isNullOrUndefined} from "util";
 import {AngularFireAuth} from '@angular/fire/auth';
+import {ToastController} from '@ionic/angular'
 
 @Component({
   selector: 'app-profile-maker',
@@ -19,43 +20,60 @@ export class ProfileMakerPage implements OnInit {
   telephone: string;
 
   constructor(private clientService: ClientService, private storageService: StorageService, 
-    private router: Router, private AFauth: AngularFireAuth) { }
+    private router: Router, private AFauth: AngularFireAuth, private toastController: ToastController) { }
 
   ngOnInit() {
   }
 
   createClient(){
-    let client: Client = {
-      mail: '',
-      uid: '',
-      name: this.name,
-      lastname: this.lastname,
-      telephone:this.telephone,
-      commands: []
-    }
-
-    this.AFauth.authState.subscribe(auth =>{
-      client.mail = auth.email;
-      client.uid = auth.uid;
-      this.clientService.createClient(client).then(()=>{
-        this.storageService.addActualRol('client').then(()=>{
-          this.storageService.addActualName(client.name + ' ' + client.lastname)
-          this.storageService.addActualUID(client.uid)
-          this.clientService.getClients().subscribe(res =>{
-            this.clients = res;
-            for(let cli of this.clients){
-              if(cli.uid == client.uid){
-                this.storageService.addActualId(cli.id).then(()=>{
-                  this.router.navigate(['tabs']).then(()=>{
-                    location.reload()
+    if(this.telephone != undefined && this.name !=undefined && this.lastname != undefined){
+      let client: Client = {
+        mail: '',
+        uid: '',
+        name: this.name,
+        lastname: this.lastname,
+        telephone:this.telephone,
+        commands: []
+      }
+  
+      this.AFauth.authState.subscribe(auth =>{
+        client.mail = auth.email;
+        client.uid = auth.uid;
+        this.clientService.createClient(client).then(()=>{
+          this.storageService.addActualRol('client').then(()=>{
+            this.storageService.addActualName(client.name + ' ' + client.lastname)
+            this.storageService.addActualUID(client.uid)
+            this.clientService.getClients().subscribe(res =>{
+              this.clients = res;
+              for(let cli of this.clients){
+                if(cli.uid == client.uid){
+                  this.storageService.addActualId(cli.id).then(()=>{
+                    this.router.navigate(['tabs']).then(()=>{
+                      location.reload()
+                    })
                   })
-                })
+                }
               }
-            }
-          })   
+            })   
+          })
         })
       })
-    })
+    }else{
+      this.errorAlert('Rellene los campos debidamente')
+    }
+
+    
+  }
+
+  async errorAlert(msg){
+    const toast = await this.toastController.create({
+      message: msg,
+      color: 'primary',
+      position: 'middle',
+      duration: 2000
+    });
+    toast.present();
+
   }
 
 }

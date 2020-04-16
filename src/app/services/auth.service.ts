@@ -6,20 +6,22 @@ import { AngularFirestoreModule, AngularFirestore, AngularFirestoreCollection } 
 import {Observable} from "rxjs";
 import {map} from "rxjs/operators";
 import {Router} from "@angular/router";
+import {ToastController} from '@ionic/angular'
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
 
-  constructor(private AFauth: AngularFireAuth, db: AngularFirestore, private router: Router) { }
+  constructor(private AFauth: AngularFireAuth, db: AngularFirestore, private router: Router, 
+    private toastController: ToastController) { }
 
   login(email: string, password: string){
     return new Promise((resolve, rejected) =>{
       this.AFauth.auth.signInWithEmailAndPassword(email, password).then(user =>{
         resolve(user)      
       }).catch(err => 
-        console.log(err));
+        this.passAlert('Error al iniciar sesión, comprueba las credenciales'));
     })
   }
 
@@ -36,5 +38,16 @@ export class AuthService {
         reject(err);
       })
     });
+  }
+
+  async passAlert(msg){
+    const toast = await this.toastController.create({
+      message: msg,
+      color: 'primary',
+      position: 'middle',
+      duration: 2000
+    });
+    toast.present();
+
   }
 }

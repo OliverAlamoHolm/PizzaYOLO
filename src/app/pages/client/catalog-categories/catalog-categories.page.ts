@@ -38,22 +38,18 @@ export class CatalogCategoriesPage implements OnInit {
   }
 
     addToCart(product){
-
       this.commandsService.addProduct(product)
-      this.showToast(product.name + ' ha sido añadido al carrito')
-              
+      this.showToast(product.name + ' ha sido añadido al carrito')         
     }
 
 
     getStat(){
-
         return this.angularFireAuth.authState.pipe(map(auth =>{
             if (isNullOrUndefined(auth)){
                 return false;
             }else{
                 return true;
             }
-
         }))
     }
 

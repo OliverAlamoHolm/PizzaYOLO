@@ -13,7 +13,6 @@ import { promise } from 'protractor';
 export class CommandDetailsPage implements OnInit {
 
   command: Command;
-
   cart : Product[] = [];
   clients= []
   actualId: string = ''
@@ -42,11 +41,11 @@ export class CommandDetailsPage implements OnInit {
       }
       this.totalPrice = this.command.price;
       this.storageService.getActualID().then(res =>{
+        
         this.actualId = res;
         
         this.clientService.getClient(this.actualId).subscribe(res=>{
           this.client = res
-          console.log(res);
         })
       })
     })
@@ -54,27 +53,23 @@ export class CommandDetailsPage implements OnInit {
   }
 
   show(){
-
-    
-   
     if(this.ubication != ''){
       this.command.ubication = this.ubication;
       let cos = this.client.commands
       cos.push(this.command)
       this.client.commands = cos;
-      console.log(this.client)
-      this.clientService.updateClient(this.client, this.actualId).then(()=>{
-        this.coService.deleteCart();
-        
-        this.router.navigate(['tabs']).then(()=>{
-          location.reload()
-        })
-        
-      })
       
-
+      this.clientService.updateClient(this.client, this.actualId).then(()=>{
+        this.coService.addCommand(this.command).then(()=>{
+          this.coService.deleteCart();
+        
+          this.router.navigate(['tabs']).then(()=>{
+            location.reload()
+          })
+        }) 
+      })
     }else{
-      console.log('Complete la ubicación')
+      
     }  
   }
 
@@ -82,7 +77,6 @@ export class CommandDetailsPage implements OnInit {
     let total = 0;
     for(let car of this.cart){
       total +=  car.price * car.amount;
-      
     }
     return total;
   }

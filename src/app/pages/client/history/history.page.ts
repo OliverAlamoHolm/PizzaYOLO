@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-
 import {StorageService} from "../../../services/storage.service"
 import{ClientService, Client} from "../../../services/client.service"
 import { CommandsService, Command } from 'src/app/services/commands.service';
@@ -26,7 +25,6 @@ export class HistoryPage implements OnInit {
     
       this.clientService.getClient(this.actualId).subscribe(res=>{
         this.commands = res.commands;
-        console.log(res.commands)
       })
       
     })
@@ -39,7 +37,6 @@ export class HistoryPage implements OnInit {
   change(command){
     command.showCart = !command.showCart;
     this.commandsService.updateCommand(command, command.id)
-
   }
 
   async openCart(c){
@@ -50,7 +47,6 @@ export class HistoryPage implements OnInit {
       componentProps: {
         cart: c.cart
       }
-
     })
     modal.present();
 
